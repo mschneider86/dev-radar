@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import api from "./services/api";
 
 import "./global.css";
 import "./App.css";
@@ -6,6 +7,8 @@ import "./Sidebar.css";
 import "./Main.css";
 
 function App() {
+  const [devs, setDevs] = useState([]);
+
   const [github_username, setGithubUsername] = useState("");
   const [techs, setTechs] = useState("");
 
@@ -27,11 +30,38 @@ function App() {
       }
     );
   }, []);
+
+  useEffect(() => {
+    async function loadDevs() {
+      const response = await api.get("/devs");
+
+      setDevs(response.data);
+    }
+
+    loadDevs();
+  });
+
+  async function handleAddDev(e) {
+    e.preventDefault();
+
+    const response = await api.post("/devs", {
+      github_username,
+      techs,
+      latitude,
+      longitude,
+    });
+
+    setGithubUsername("");
+    setTechs("");
+
+    setDevs([...devs, response.data]);
+  }
+
   return (
     <div id="app">
       <aside>
         <strong>Cadastrar</strong>
-        <form>
+        <form onSubmit={handleAddDev}>
           <div className="input-block">
             <label htmlFor="github_username">Usuário do Github</label>
             <input
@@ -85,64 +115,21 @@ function App() {
       </aside>
       <main>
         <ul>
-          <li className="dev-item">
-            <header>
-              <img
-                src="https://avatars3.githubusercontent.com/u/26752887?s=460&u=fa07959ea62de89ac27111f2adc00c8dad21ebab&v=4"
-                alt=""
-              />
-              <div className="user-info">
-                <strong>Diego</strong>
-                <span>react js</span>
-              </div>
-            </header>
-            <p>to da rocket</p>
-            <a href="http://www.com">Acessar perfil no Github</a>
-          </li>
-          <li className="dev-item">
-            <header>
-              <img
-                src="https://avatars3.githubusercontent.com/u/26752887?s=460&u=fa07959ea62de89ac27111f2adc00c8dad21ebab&v=4"
-                alt=""
-              />
-              <div className="user-info">
-                <strong>Diego</strong>
-                <span>react js</span>
-              </div>
-            </header>
-            <p>to da rocket</p>
-            <a href="http://www.com">Acessar perfil no Github</a>
-          </li>
-
-          <li className="dev-item">
-            <header>
-              <img
-                src="https://avatars3.githubusercontent.com/u/26752887?s=460&u=fa07959ea62de89ac27111f2adc00c8dad21ebab&v=4"
-                alt=""
-              />
-              <div className="user-info">
-                <strong>Diego</strong>
-                <span>react js</span>
-              </div>
-            </header>
-            <p>to da rocket</p>
-            <a href="http://www.com">Acessar perfil no Github</a>
-          </li>
-
-          <li className="dev-item">
-            <header>
-              <img
-                src="https://avatars3.githubusercontent.com/u/26752887?s=460&u=fa07959ea62de89ac27111f2adc00c8dad21ebab&v=4"
-                alt=""
-              />
-              <div className="user-info">
-                <strong>Diego</strong>
-                <span>react js</span>
-              </div>
-            </header>
-            <p>to da rocket</p>
-            <a href="http://www.com">Acessar perfil no Github</a>
-          </li>
+          {devs.map((dev) => (
+            <li key={dev._id} className="dev-item">
+              <header>
+                <img src={dev.avatar_url} alt={dev.name} />
+                <div className="user-info">
+                  <strong>{dev.name}</strong>
+                  <span>{dev.techs.join(", ")}</span>
+                </div>
+              </header>
+              <p>{dev.bio}</p>
+              <a href={`http://github.com/${dev.github_username}`}>
+                Acessar perfil no Github
+              </a>
+            </li>
+          ))}
         </ul>
       </main>
     </div>
