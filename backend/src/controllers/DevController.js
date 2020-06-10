@@ -75,18 +75,13 @@ module.exports = {
   },
 
   async delete(request, response) {
-    const { github_username } = request.params;
+    const { _id } = request.params;
 
-    const dev = await Dev.findOne({ github_username });
-    console.log(JSON.stringify(dev));
+    const dev = await Dev.findOneAndDelete({ _id });
 
     if (!dev) {
-      return response
-        .status(404)
-        .json({ error: `Dev ${github_username} not found` });
+      return response.status(404).json({ error: `Dev not found` });
     }
-    return response
-      .status(200)
-      .json({ message: `Dev ${github_username} deleted!` });
+    return response.status(200).json({ message: `Dev deleted!` });
   },
 };
