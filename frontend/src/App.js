@@ -6,6 +6,9 @@ import "./Sidebar.css";
 import "./Main.css";
 
 function App() {
+  const [github_username, setGithubUsername] = useState("");
+  const [techs, setTechs] = useState("");
+
   const [latitude, setLatitude] = useState("");
   const [longitude, setLongitude] = useState("");
 
@@ -31,12 +34,24 @@ function App() {
         <form>
           <div className="input-block">
             <label htmlFor="github_username">Usuário do Github</label>
-            <input name="github_username" id="github_username" required />
+            <input
+              name="github_username"
+              id="github_username"
+              required
+              value={github_username}
+              onChange={(e) => setGithubUsername(e.target.value)}
+            />
           </div>
 
           <div className="input-block">
             <label htmlFor="techs">Tecnologias</label>
-            <input name="techs" id="techs" required />
+            <input
+              name="techs"
+              id="techs"
+              required
+              value={techs}
+              onChange={(e) => setTechs(e.target.value)}
+            />
           </div>
 
           <div className="input-group">
@@ -48,7 +63,7 @@ function App() {
                 id="latitude"
                 required
                 value={latitude}
-                onChange={setLatitude}
+                onChange={(e) => setLatitude(e.target.value)}
               />
             </div>
 
@@ -60,7 +75,7 @@ function App() {
                 id="longitude"
                 required
                 longitude={longitude}
-                onChange={setLongitude}
+                onChange={(e) => setLongitude(e.target.value)}
               />
             </div>
           </div>
