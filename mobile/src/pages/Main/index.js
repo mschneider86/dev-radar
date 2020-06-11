@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import MapView from "react-native-maps";
+import { Image, View, Text } from "react-native";
+import MapView, { Marker, Callout } from "react-native-maps";
 import {
   requestPermissionsAsync,
   getCurrentPositionAsync,
@@ -37,7 +38,27 @@ function Main() {
     return null;
   }
 
-  return <MapView initialRegion={currentRegion} style={styles.map} />;
+  return (
+    <MapView initialRegion={currentRegion} style={styles.map}>
+      <Marker coordinate={{ latitude: -19.912139, longitude: -43.9291667 }}>
+        <Image
+          style={styles.avatar}
+          source={{
+            uri:
+              "https://avatars3.githubusercontent.com/u/26752887?s=460&u=fa07959ea62de89ac27111f2adc00c8dad21ebab&v=4",
+          }}
+        />
+
+        <Callout>
+          <View style={styles.callout}>
+            <Text style={styles.devName}>Matheus Schneider</Text>
+            <Text style={styles.devBio}>My bio</Text>
+            <Text style={styles.devTechs}>React JS, React Native, NodeJS</Text>
+          </View>
+        </Callout>
+      </Marker>
+    </MapView>
+  );
 }
 
 export default Main;
