@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { Image, View, Text } from "react-native";
+import { Image, View, Text, TextInput, TouchableOpacity } from "react-native";
 import MapView, { Marker, Callout } from "react-native-maps";
+import { MaterialIcons } from "@expo/vector-icons";
 import {
   requestPermissionsAsync,
   getCurrentPositionAsync,
@@ -39,31 +40,48 @@ function Main({ navigation }) {
   }
 
   return (
-    <MapView initialRegion={currentRegion} style={styles.map}>
-      <Marker coordinate={{ latitude: -19.912139, longitude: -43.9291667 }}>
-        <Image
-          style={styles.avatar}
-          source={{
-            uri:
-              "https://avatars3.githubusercontent.com/u/26752887?s=460&u=fa07959ea62de89ac27111f2adc00c8dad21ebab&v=4",
-          }}
+    <>
+      <MapView initialRegion={currentRegion} style={styles.map}>
+        <Marker coordinate={{ latitude: -19.912139, longitude: -43.9291667 }}>
+          <Image
+            style={styles.avatar}
+            source={{
+              uri:
+                "https://avatars3.githubusercontent.com/u/26752887?s=460&u=fa07959ea62de89ac27111f2adc00c8dad21ebab&v=4",
+            }}
+          />
+
+          <Callout
+            onPress={() => {
+              navigation.navigate("Profile", {
+                github_username: "mschneider86 ",
+              });
+            }}
+          >
+            <View style={styles.callout}>
+              <Text style={styles.devName}>Matheus Schneider</Text>
+              <Text style={styles.devBio}>My bio</Text>
+              <Text style={styles.devTechs}>
+                React JS, React Native, NodeJS
+              </Text>
+            </View>
+          </Callout>
+        </Marker>
+      </MapView>
+      <View style={styles.searchForm}>
+        <TextInput
+          style={styles.searchInput}
+          placeholder="buscar devs por tecnologia..."
+          placeholderTextColor="#999"
+          autoCapitalize="words"
+          autoCorrect={false}
         />
 
-        <Callout
-          onPress={() => {
-            navigation.navigate("Profile", {
-              github_username: "mschneider86 ",
-            });
-          }}
-        >
-          <View style={styles.callout}>
-            <Text style={styles.devName}>Matheus Schneider</Text>
-            <Text style={styles.devBio}>My bio</Text>
-            <Text style={styles.devTechs}>React JS, React Native, NodeJS</Text>
-          </View>
-        </Callout>
-      </Marker>
-    </MapView>
+        <TouchableOpacity onPress={() => {}} style={styles.searchButton}>
+          <MaterialIcons name="my-location" size={20} color="#fff" />
+        </TouchableOpacity>
+      </View>
+    </>
   );
 }
 
