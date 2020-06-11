@@ -8,7 +8,7 @@ import {
 
 import styles from "./styles";
 
-function Main() {
+function Main({ navigation }) {
   const [currentRegion, setCurrentRegion] = useState(null);
 
   useEffect(() => {
@@ -49,7 +49,13 @@ function Main() {
           }}
         />
 
-        <Callout>
+        <Callout
+          onPress={() => {
+            navigation.navigate("Profile", {
+              github_username: "mschneider86 ",
+            });
+          }}
+        >
           <View style={styles.callout}>
             <Text style={styles.devName}>Matheus Schneider</Text>
             <Text style={styles.devBio}>My bio</Text>
