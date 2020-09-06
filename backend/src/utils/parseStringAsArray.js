@@ -1,3 +1,3 @@
 module.exports = (arrayAsAtring) => {
-  return arrayAsAtring.split(",").map((tech) => tech.trim());
+  return arrayAsAtring && arrayAsAtring.split(',').map((tech) => tech.trim());
 };
