@@ -25,8 +25,8 @@
   <a href="#installing">Installing</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</p>
 
 <p >
-  <img alt="Frontend" src="assets_github/devradar-web.gif" width="600px" height="400px">
-  <img alt="Mobile" style="margin-left:10px" src="assets_github/devradar-mobile.png" width="246px" height="400px">
+  <img alt="Frontend" src="assets_github/devradar-web.gif" width="580px" height="380px">
+  <img alt="Mobile" style="margin-left:10px" src="assets_github/devradar-mobile.png" width="226px" height="380px">
 </p>
 
 ## Description
