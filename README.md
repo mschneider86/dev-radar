@@ -24,12 +24,9 @@
   <a href="#prerequisites">Prerequisites</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#installing">Installing</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</p>
 
-<p align="center">
-  <img alt="Preview" src="./preview.png" width="100%">
-</p>
 <p >
   <img alt="Frontend" src="assets_github/devradar-web.gif" width="600px" height="400px">
-  <img alt="Mobile" style="margin-left:10px" src="assets_github/devradar-mobile" width="246px" height="400px">
+  <img alt="Mobile" style="margin-left:10px" src="assets_github/devradar-mobile.png" width="246px" height="400px">
 </p>
 
 ## Description
