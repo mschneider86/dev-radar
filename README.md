@@ -3,16 +3,16 @@
 </h1>
 
 <p align="center">
-  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/gustavo-tp/dev-radar.svg">
+  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/mschneider86/dev-radar.svg">
 
-  <img alt="Repository size" src="https://img.shields.io/github/repo-size/gustavo-tp/dev-radar.svg">
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/mschneider86/dev-radar.svg">
   
   <a href="https://github.com/Rocketseat/semana-omnistack-9/commits/master">
-    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/gustavo-tp/dev-radar.svg">
+    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/mschneider86/dev-radar">
   </a>
 
   <a href="https://github.com/Rocketseat/semana-omnistack-9/issues">
-    <img alt="Repository issues" src="https://img.shields.io/github/issues/gustavo-tp/dev-radar.svg">
+    <img alt="Repository issues" src="https://img.shields.io/github/issues/mschneider86/dev-radar">
   </a>
 
   <img alt="License" src="https://img.shields.io/badge/license-MIT-brightgreen">
@@ -20,21 +20,23 @@
 
 <p align="center">
   <a href="#description">Description</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#technologies-used">Technologies used</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#prerequisites">Prerequisites</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#installing">Installing</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#acknowledgments">Acknowledgments</a>
-</p>
+  <a href="#installing">Installing</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</p>
 
 <p align="center">
   <img alt="Preview" src="./preview.png" width="100%">
+</p>
+<p >
+  <img alt="Frontend" src="assets_github/devradar-web.gif" width="600px" height="400px">
+  <img alt="Mobile" style="margin-left:10px" src="assets_github/devradar-mobile" width="246px" height="400px">
 </p>
 
 ## Description
 
 Application designed to find developers geographically close to you and who have the same interests.
 
-### Technologies used
+### Technologies
 
 - [Node.js](https://nodejs.org/en/)
 - [ReactJS](https://reactjs.org)
@@ -55,29 +57,33 @@ The below softwares are needed, so if you need to install any of them, click on 
 Follow the steps below to run the project on your computer. (using terminal or git bash)
 
 1. Clone this repository
+
 ```
 git clone git@github.com:gustavo-tp/dev-radar.git
 ```
+
 2. Run Backend
+
 ```
 cd dev-radar/backend
 yarn
 yarn dev
 ```
+
 3. Run WEB App
+
 ```
 cd ../frontend
 yarn
 yarn start
 ```
+
 4. Run Mobile App
+
 ```
 cd ../mobile
 yarn
 yarn start
 ```
-Then open the Expo app on your phone and scanned the QR code.
 
-### Acknowledgments
-[<img src="https://avatars3.githubusercontent.com/u/28929274?s=96&v=4" alt="@Rocketseat">](https://github.com/Rocketseat)
-[<img src="https://avatars3.githubusercontent.com/u/2254731?s=96&v=4" alt="@diego3g">](https://github.com/diego3g)
+Then open the Expo app on your phone and scan the QR code.
